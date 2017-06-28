@@ -6,7 +6,7 @@
     <div class="main-panel">
         <app-navbar></app-navbar>
         <app-dashboard></app-dashboard>
-        <div >
+        <div *ngIf="isMaps('/maps')">
             <app-footer></app-footer>
         </div>
     </div>

@@ -11,7 +11,6 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { TypographyComponent } from './dashboard/typography/typography.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +19,6 @@ import { TypographyComponent } from './dashboard/typography/typography.component
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
-    TypographyComponent,
   ],
   imports: [
     BrowserModule,
