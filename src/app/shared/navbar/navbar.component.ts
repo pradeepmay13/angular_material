@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
+import {CommonModule, Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { SIDEBARROUTES } from '../../sidebar/sidebar-routes.config';
 
 @Component({

@@ -1,12 +1,12 @@
 import { Route } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
-import { HomeComponent } from './home/home.component';
-import { UserComponent } from './user/user.component';
-import { IconsComponent } from './icons/icons.component';
-import { TableComponent } from './table/table.component';
-import { NotificationsComponent } from './notifications/notifications.component';
-import { TypographyComponent } from './typography/typography.component';
-import { MapsComponent } from './maps/maps.component';
+import { DashboardComponent } from '../dashboard/dashboard.component';
+import { HomeComponent } from '../dashboard/home/home.component';
+import { UserComponent } from '../dashboard/user/user.component';
+import { IconsComponent } from '../dashboard/icons/icons.component';
+import { TableComponent } from '../dashboard/table/table.component';
+import { NotificationsComponent } from '../dashboard/notifications/notifications.component';
+import { TypographyComponent } from '../dashboard/typography/typography.component';
+import { MapsComponent } from '../dashboard/maps/maps.component';
 
 export const MODULE_ROUTES: Route[] =[
     { path: 'dashboard', component: HomeComponent },

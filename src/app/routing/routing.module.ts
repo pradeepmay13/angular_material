@@ -6,7 +6,7 @@ import { MODULE_COMPONENTS, MODULE_ROUTES } from './router';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule:forChild(MODULE_ROUTES)
+    RouterModule.forChild(MODULE_ROUTES)
   ],
   declarations: [ MODULE_COMPONENTS ]
 })

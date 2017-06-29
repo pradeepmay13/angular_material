@@ -11,7 +11,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FooterComponent } from './shared/footer/footer.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { TypographyComponent } from './dashboard/typography/typography.component';
+import { AppRoutingModule, routingComponent } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,11 +20,11 @@ import { TypographyComponent } from './dashboard/typography/typography.component
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
-    TypographyComponent,
+    routingComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot([])
+    AppRoutingModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
