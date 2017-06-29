@@ -26,5 +26,5 @@ export const MODULE_COMPONENTS = [
     IconsComponent,
     NotificationsComponent,
     TypographyComponent,
-    MapsComponent,
+    MapsComponent
 ]
