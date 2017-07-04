@@ -12,6 +12,8 @@ import { NotificationsComponent } from './dashboard/notifications/notifications.
 import { TypographyComponent } from './dashboard/typography/typography.component';
 import { MapsComponent } from './dashboard/maps/maps.component';
 import { PageNotFound } from './error_pages/page-not-found.component';
+import { LoginComponent } from './login/login.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 const routes: Routes = [
 	{ path: 'dashboard', component: HomeComponent },
@@ -21,7 +23,8 @@ const routes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'typography', component: TypographyComponent },
   { path: 'maps', component: MapsComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'userRegistration', component: UserRegistrationComponent },
+  { path: '', redirectTo: 'userRegistration', pathMatch: 'full' },
   { path:'**', component: PageNotFound }
 ];
 
@@ -45,5 +48,6 @@ export const routingComponent=[
     NotificationsComponent,
     TypographyComponent,
     MapsComponent,
+    LoginComponent,
     PageNotFound
 ]

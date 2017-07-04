@@ -13,6 +13,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule, routingComponent } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { AppRoutingModule, routingComponent } from './app-routing.module';
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
-    routingComponent
+    routingComponent,
+    LoginComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,
