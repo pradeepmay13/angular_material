@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserValidationService } from './user-validation.service';
 
+//https://embed.plnkr.co/ukwCXm/
+//https://coryrylan.com/blog/angular-form-builder-and-validation-management
+//https://github.com/start-angular/SB-Admin-BS4-Angular-4
+//http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
+
 
 @Component({
   selector: 'app-user-registration',
