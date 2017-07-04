@@ -1,8 +1,3 @@
-https://embed.plnkr.co/ukwCXm/
-https://coryrylan.com/blog/angular-form-builder-and-validation-management
-https://github.com/start-angular/SB-Admin-BS4-Angular-4
-http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
-
 <div class="main-content">
 <div class="container-fluid">
     <div class="row">
@@ -13,14 +8,14 @@ http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
                     <p class="category">Complete your profile</p>
                 </div>
                 <div class="card-content">
-                    <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" novalidate>
-
+                    <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit(userForm.value)" novalidate>
+                        
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="form-group form-black label-floating is-empty">
                                     <label class="control-label">Username</label>
                                     <input type="text" formControlName="username" class="form-control" >
-                                    <div class="text text-danger has-error" *ngIf="userForm.controls['username'].touched">
+                                    <div class="text text-danger has-error" *ngIf="userForm.controls.username.touched">
 								          <div *ngIf="userForm.controls.username.hasError('required')">Please Enter your Name</div>
 								          <div *ngIf="userForm.controls.username.hasError('minlength')">Please Enter atleast 4 characters</div>
 							        </div>
@@ -32,7 +27,7 @@ http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
                                     <label class="control-label">Email address</label>
                                     <input type="email" formControlName="email" class="form-control" >
 
-                                    <div class="text text-danger has-error" *ngIf="userForm.controls['email'].touched">
+                                    <div class="text text-danger has-error" *ngIf="userForm.controls.email.touched">
 							          <div *ngIf="userForm.controls.email.hasError('required')">Please Enter your Email</div>
 							          <div *ngIf="!userForm.controls.email.hasError('required') && userForm.controls.email.hasError('invalidEmailAddress')">Please Enter Valid Email</div>
 							        </div>
@@ -46,8 +41,8 @@ http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
                                 <div class="form-group form-black label-floating is-empty">
                                     <label class="control-label">Fist Name</label>
                                     <input type="text" class="form-control" formControlName="firstname">
-                                    <div class="text text-danger" *ngIf="userForm.controls['firstname'].touched"> 
-                                        <p *ngIf="userForm.controls['firstname'].hasError('required')">This field is required</p>
+                                    <div class="text text-danger" *ngIf="userForm.controls.firstname.touched"> 
+                                        <p *ngIf="userForm.controls.firstname.hasError('required')">This field is required</p>
                                     </div>
                                 </div>
                             </div>
@@ -55,8 +50,8 @@ http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
                                 <div class="form-group form-black label-floating is-empty">
                                     <label class="control-label">Last Name</label>
                                     <input type="text" class="form-control" formControlName="lastname">
-                                    <div class="text text-danger" *ngIf="userForm.controls['lastname'].touched"> 
-                                        <p *ngIf="userForm.controls['lastname'].hasError('required')">This field is required</p>
+                                    <div class="text text-danger" *ngIf="userForm.controls.lastname.touched"> 
+                                        <p *ngIf="userForm.controls.lastname.hasError('required')">This field is required</p>
                                     </div>
                                 </div>
                             </div>
@@ -67,8 +62,8 @@ http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
                                     <div class="form-group form-black label-floating is-empty">
 	                                    <label class="control-label">Address</label>
 	                                    <input type="text" class="form-control" formControlName="addressline">
-                                       	<div class="text text-danger" *ngIf="userForm.controls['addressline'].touched"> 
-                                        	<p *ngIf="userForm.controls['addressline'].hasError('required')">This field is required</p>
+                                       	<div class="text text-danger" *ngIf="userForm.controls['address'].controls['addressline'].touched"> 
+                                        	<p *ngIf="userForm.controls['address'].controls['addressline'].hasError('required')">This field is required</p>
                                     	</div>
                                     </div>
                                 </div>
@@ -79,27 +74,27 @@ http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">City</label>
                                         <input type="text" class="form-control" formControlName="city" >
-                                        <div class="text text-danger" *ngIf="userForm.controls['city'].touched"> 
-                                        	<p *ngIf="userForm.controls['city'].hasError('required')">This field is required</p>
-                                    	</div>
+                                        <div class="text text-danger" *ngIf="userForm.controls['address'].controls['city'].touched"> 
+                                            <p *ngIf="userForm.controls['address'].controls['city'].hasError('required')">This field is required</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">Country</label>
                                         <input type="text" class="form-control" formControlName="country" >
-                                        <div class="text text-danger" *ngIf="userForm.controls['country'].touched"> 
-                                        	<p *ngIf="userForm.controls['country'].hasError('required')">This field is required</p>
-                                    	</div>
+                                        <div class="text text-danger" *ngIf="userForm.controls['address'].controls['country'].touched"> 
+                                            <p *ngIf="userForm.controls['address'].controls['country'].hasError('required')">This field is required</p>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group form-black label-floating is-empty">
                                         <label class="control-label">Postal Code</label>
                                         <input type="text" class="form-control" formControlName="postalCode" >
-                                       	<div class="text text-danger" *ngIf="userForm.controls['postalCode'].touched"> 
-                                        	<p *ngIf="userForm.controls['postalCode'].hasError('required')">This field is required</p>
-                                        	<p *ngIf="userForm.controls['postalCode'].hasError('pattern')">Please Enter Valid Postal Code</p>
+                                       	<div class="text text-danger" *ngIf="userForm.controls['address'].controls['postalCode'].touched"> 
+                                        	<p *ngIf="userForm.controls['address'].controls['postalCode'].hasError('required')">This field is required</p>
+                                        	<p *ngIf="userForm.controls['address'].controls['postalCode'].hasError('pattern')">Please Enter Valid Postal Code</p>
                                     	</div>
                                     </div>
                                 </div>
