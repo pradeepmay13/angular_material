@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserValidationService } from './user-validation.service';
 
-import { Http, Response }          from '@angular/http';
- 
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
@@ -47,10 +47,13 @@ export class UserRegistrationComponent implements OnInit {
 		})
 	}
 	onSubmit(value): Observable<registration[]> {
-		console.log(value);
-		private commentsUrl = 'http://localhost:3000/api/comments';
-		let bodyString = JSON.stringify(body); // Stringify payload
+		console.log(data: Object);
+		private registrationUrl = 'http://localhost:3000/api/comments';
+		let bodyString = JSON.stringify(data); // Stringify payload
         let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
         let options       = new RequestOptions({ headers: headers }); // Create a request option
+        return this.http.post(this.registrationUrl, data, options)
+        .map((res: response) => res.json())
+        .catch((error: any) => Observable.throw(error.json().error || 'Server Error'));
 	}
 }
