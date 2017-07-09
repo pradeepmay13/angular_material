@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { UserValidationService } from './user-validation.service';
-
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
+import { Http, Response, Headers } from '@angular/http';
+import { UserService } from './user.service';
 
 //https://embed.plnkr.co/ukwCXm/
 //https://coryrylan.com/blog/angular-form-builder-and-validation-management
@@ -25,11 +21,12 @@ import 'rxjs/add/operator/map';
 	  	border-bottom: red;
 	}
   `],
-  providers : [ UserValidationService ]
+  providers : [ UserValidationService, UserService ]
 })
 export class UserRegistrationComponent implements OnInit {
 	userForm: FormGroup;
-	constructor(private fb: FormBuilder, private http: Http) { }
+	UserService: UserService;
+	constructor(private fb: FormBuilder) { }
 
 	ngOnInit() {
 		this.userForm = this.fb.group({
@@ -46,14 +43,23 @@ export class UserRegistrationComponent implements OnInit {
 			aboutYou	:	['', [Validators.required]],
 		})
 	}
-	onSubmit(value): Observable<registration[]> {
-		console.log(data: Object);
-		private registrationUrl = 'http://localhost:3000/api/comments';
-		let bodyString = JSON.stringify(data); // Stringify payload
-        let headers      = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
-        let options       = new RequestOptions({ headers: headers }); // Create a request option
-        return this.http.post(this.registrationUrl, data, options)
-        .map((res: response) => res.json())
-        .catch((error: any) => Observable.throw(error.json().error || 'Server Error'));
+	onSubmit() {
+
+		this.UserService.register(this.userForm.value)
+		 .subscribe(
+		   	response  => {
+			    // const user = .user;
+			    console.log(response);
+		     	//if ( response.status === '1') {
+			    //	this.status = "success";
+			    //	this.message = response.message;
+			    	// this.router.navigate(['about']);
+		     	//} else {
+			    //   	this.status = "error";
+			    //	this.message = response.message;
+		     	//}
+		   	},
+		   	error =>  console.log(<any>error)
+		   	);
 	}
 }
