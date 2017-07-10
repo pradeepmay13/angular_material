@@ -10,6 +10,7 @@ import { UserService } from './user.service';
 //http://www.dotnetjalps.com/2016/07/angular2-packages-sublime-text3.html
 //http://dotsway.com/2017/04/05/simple-page-binding-in-angular-4/
 //https://scotch.io/tutorials/angular-2-http-requests-with-observables
+//https://github.com/xiphux/gitphp
 
 
 @Component({
@@ -26,26 +27,26 @@ import { UserService } from './user.service';
 export class UserRegistrationComponent implements OnInit {
 	userForm: FormGroup;
 	UserService: UserService;
-	constructor(private fb: FormBuilder) { }
+	constructor(private fb: FormBuilder, private userService: UserService) { }
 
 	ngOnInit() {
 		this.userForm = this.fb.group({
-			username	:	['', [Validators.required, Validators.minLength(4)]],
-			email		:	['', Validators.compose([Validators.required, UserValidationService.emailValidator])],
-			firstname	:	['', [Validators.required]],
-			lastname	:	['', [Validators.required]],
+			username	:	['pradeep', [Validators.required, Validators.minLength(4)]],
+			email		:	['pradeep@gmail.com', Validators.compose([Validators.required, UserValidationService.emailValidator])],
+			firstname	:	['pradeep', [Validators.required]],
+			lastname	:	['pradeep123', [Validators.required]],
 			address 	: this.fb.group({
-						addressline	:	['', [Validators.required]],
-						city		:	['', [Validators.required]],
-						country		:	['', [Validators.required]],
-						postalCode	:	['', Validators.compose([Validators.required, Validators.pattern('^[1-9][0-9]{4}$')])],
+						addressline	:	['sgdsd g', [Validators.required]],
+						city		:	['gurgaon', [Validators.required]],
+						country		:	['fdfd', [Validators.required]],
+						postalCode	:	['33333', Validators.compose([Validators.required, Validators.pattern('^[1-9][0-9]{4}$')])],
 						}),
-			aboutYou	:	['', [Validators.required]],
+			aboutYou	:	['ccc', [Validators.required]],
 		})
 	}
 	onSubmit() {
 
-		this.UserService.register(this.userForm.value)
+		this.userService.register(this.userForm.value)
 		 .subscribe(
 		   	response  => {
 			    // const user = .user;
@@ -59,7 +60,7 @@ export class UserRegistrationComponent implements OnInit {
 			    //	this.message = response.message;
 		     	//}
 		   	},
-		   	error =>  console.log(<any>error)
+		   	//error =>  console.log(<any>error)
 		   	);
 	}
 }

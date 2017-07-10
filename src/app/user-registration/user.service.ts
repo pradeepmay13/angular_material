@@ -16,7 +16,8 @@ export class UserService {
 	  	Object.keys(user).forEach(key => {
 	    	data.set(key, user[key]);
 	  	});
-      	return this.http.post('https://localhost/services.php', data.toString(), { headers: headers })
+	  	console.log(user);
+      	return this.http.post('http://localhost/services.php', JSON.stringify(user), { headers: headers })
       	.map((response: Response) => response.json())
       	.catch((error: any) => Observable.throw(error.json().error || {message: "Server Error"}));
 	  }
