@@ -12,11 +12,11 @@ export class UserService {
 	register (user: Object): Observable<any> {
 	    let headers = new Headers();
         headers.append('Content-Type', 'application/x-www-form-urlencoded');
-	   	const data = new URLSearchParams();
-	  	Object.keys(user).forEach(key => {
-	    	data.set(key, user[key]);
-	  	});
-	  	console.log(user);
+	   	//const data = new URLSearchParams();
+	  	//Object.keys(user).forEach(key => {
+	    //	data.set(key, user[key]);
+	  	//});
+	  	//console.log(user);
       	return this.http.post('http://localhost/services.php', JSON.stringify(user), { headers: headers })
       	.map((response: Response) => response.json())
       	.catch((error: any) => Observable.throw(error.json().error || {message: "Server Error"}));
