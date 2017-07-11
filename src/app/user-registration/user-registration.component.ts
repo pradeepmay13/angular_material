@@ -11,6 +11,7 @@ import { UserService } from './user.service';
 //http://dotsway.com/2017/04/05/simple-page-binding-in-angular-4/
 //https://scotch.io/tutorials/angular-2-http-requests-with-observables
 //https://github.com/xiphux/gitphp
+//https://stackoverflow.com/questions/233421/hosting-git-repository-in-windows
 
 
 @Component({
