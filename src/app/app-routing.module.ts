@@ -14,6 +14,7 @@ import { MapsComponent } from './dashboard/maps/maps.component';
 import { PageNotFound } from './error_pages/page-not-found.component';
 import { LoginComponent } from './login/login.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { CustomFormComponent } from './custom-form/custom-form.component';
 
 const routes: Routes = [
 	{ path: 'dashboard', component: HomeComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'typography', component: TypographyComponent },
   { path: 'maps', component: MapsComponent },
   { path: 'userRegistration', component: UserRegistrationComponent },
+  { path: 'customForm', component: CustomFormComponent },
   { path: '', redirectTo: 'userRegistration', pathMatch: 'full' },
   { path:'**', component: PageNotFound }
 ];
@@ -40,7 +42,7 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule { }
-export const routingComponent=[
+export const routingComponent = [
     HomeComponent,
     UserComponent,
     TableComponent,
@@ -49,5 +51,7 @@ export const routingComponent=[
     TypographyComponent,
     MapsComponent,
     LoginComponent,
+    UserRegistrationComponent,
+    CustomFormComponent,
     PageNotFound
 ]

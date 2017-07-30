@@ -19,6 +19,6 @@ export class UserService {
 	  	//console.log(user);
       	return this.http.post('http://localhost/services.php', JSON.stringify(user), { headers: headers })
       	.map((response: Response) => response.json())
-      	.catch((error: any) => Observable.throw(error.json().error || {message: "Server Error"}));
+      	.catch((error: any) => Observable.throw(error || {message: "Server Error"}));
 	  }
 }

@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
@@ -14,7 +15,10 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
+//import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { SimpleNotificationsComponent } from './simple-notifications/simple-notifications.component';
+//import { CustomFormComponent } from './custom-form/custom-form.component';
 
 @NgModule({
   declarations: [
@@ -25,14 +29,18 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     FooterComponent,
     routingComponent,
     LoginComponent,
-    UserRegistrationComponent
+    //UserRegistrationComponent,
+    SimpleNotificationsComponent,
+    //CustomFormComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

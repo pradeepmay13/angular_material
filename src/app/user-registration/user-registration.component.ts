@@ -28,6 +28,8 @@ import { UserService } from './user.service';
 export class UserRegistrationComponent implements OnInit {
 	userForm: FormGroup;
 	UserService: UserService;
+	status:string;
+	message:string;
 	constructor(private fb: FormBuilder, private userService: UserService) { }
 
 	ngOnInit() {
@@ -51,15 +53,13 @@ export class UserRegistrationComponent implements OnInit {
 		 .subscribe(
 		   	response  => {
 			    // const user = .user;
-			    console.log(response);
-		     	//if ( response.status === '1') {
-			    //	this.status = "success";
-			    //	this.message = response.message;
-			    	// this.router.navigate(['about']);
-		     	//} else {
-			    //   	this.status = "error";
-			    //	this.message = response.message;
-		     	//}
+		     	if ( response.status === '1') {
+			    	this.status = "success";
+			    	this.message = response.message;
+		     	}else {
+			    	this.status = "error";
+			    	this.message = response.message;
+		     	}
 		   	},
 		   	//error =>  console.log(<any>error)
 		   	);

@@ -10,6 +10,9 @@
         <div *ngIf="isMaps('/maps')">
             <app-footer></app-footer>
         </div>
+        
+        <button (click)="create()">Create</button>
+        <simple-notifications [options]="options"></simple-notifications>
     </div>
 </div>
 

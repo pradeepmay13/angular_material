@@ -4,10 +4,10 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" data-background-color="red">
-                    <h4 class="title">Registation</h4>
+                    <h4 class="title">Registration</h4>
                     <p class="category">Complete your profile</p>
                 </div>
-                <div class="card-content">{{status}}
+                <div class="card-content">{{status}} {{message}}
                     <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" novalidate>
                         
                         <div class="row">
