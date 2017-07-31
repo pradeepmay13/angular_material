@@ -11,14 +11,18 @@ export class CustomFormComponent implements OnInit {
   countries: any;
   states: any;
   country: any;
+  _id:any="2";
   constructor(public masterdataService :MasterdataService) {
   	
   }
   ngOnInit() {
-  	let id = "2";
+  	
   	this.countries = this.masterdataService.getCountries();
-  	this.country = this.countries.filter((countryId) => countryId.id == id);
-  	console.log(this.country);
+    if(this._id && this._id != undefined){      
+      this.country = this.countries.filter((countryId) => countryId.id == this._id);
+      this.country=this.country[0].id;
+      this.countryChange(this._id); // call state in case of country ID is available
+    }else {this.countryChange("-1");}
   }
   countryChange(value) {
   	this.states = this.masterdataService.getStates().filter((statesItem) => statesItem.cid === value)

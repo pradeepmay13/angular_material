@@ -14,7 +14,7 @@
                                 <div class="form-group form-black label-floating is-empty">
                                     <label class="control-label">Country</label>
                                     <select class="form-control" [(ngModel)]="country" (change)="countryChange(country)">
-                                    	<option *ngFor="let countryData of countries" [ngValue]="countryData">{{countryData.name}}</option>
+                                    	<option *ngFor="let countryData of countries" [ngValue]="countryData.id">{{countryData.name}}</option>
                                     </select>                                    
                                 </div>
                             </div>
