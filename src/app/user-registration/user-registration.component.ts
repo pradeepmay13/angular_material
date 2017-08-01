@@ -29,7 +29,9 @@ export class UserRegistrationComponent implements OnInit {
 	userForm: FormGroup;
 	UserService: UserService;
 	status:string;
+	class:string;
 	message:string;
+	notification: boolean = false;
 	constructor(private fb: FormBuilder, private userService: UserService) { }
 
 	ngOnInit() {
@@ -53,15 +55,27 @@ export class UserRegistrationComponent implements OnInit {
 		 .subscribe(
 		   	response  => {
 			    // const user = .user;
-		     	if ( response.status === '1') {
-			    	this.status = "success";
-			    	this.message = response.message;
+		     	if ( response[0].status === '1') {
+		     		
+		     		this.notification=true;
+		     		setTimeout(function() {
+		     		this.notification=false;}.bind(this), 3000);
+			    	this.status = "Success";
+			    	this.message = response[0].mess;
+			    	this.class="success";
 		     	}else {
-			    	this.status = "error";
-			    	this.message = response.message;
+		     		this.notification=true;
+			    	this.status = "Error";
+			    	this.message = response[0].mess;
+			    	this.class="danger";
 		     	}
 		   	},
 		   	//error =>  console.log(<any>error)
 		   	);
+	}
+	closeClick(){
+		setTimeout(function() {
+			this.notification=false;
+		},3000);
 	}
 }

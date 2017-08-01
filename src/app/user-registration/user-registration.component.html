@@ -7,7 +7,11 @@
                     <h4 class="title">Registration</h4>
                     <p class="category">Complete your profile</p>
                 </div>
-                <div class="card-content">{{status}} {{message}}
+                <div class="card-content"> 
+                    <div class="alert alert-{{class}}" *ngIf="notification">
+                      <a class="close" data-dismiss="alert" aria-label="close" (click)="closeClick()">&times;</a>
+                      <strong>{{status}}!</strong> {{message}}
+                    </div>
                     <form [formGroup]="userForm" (ngSubmit)="userForm.valid && onSubmit()" novalidate>
                         
                         <div class="row">
