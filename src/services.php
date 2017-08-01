@@ -27,9 +27,10 @@ if($link === false){
 // Attempt insert query execution
 $sql = "INSERT INTO users (firstname, lastname, username, email, password, addressline, city, country, postalCode, aboutYou) VALUES ('".$firstname."', '".$lastname."', '".$email."', '".$email."', '".$password."', '".$addressline."', '".$city."', '".$country."', '".$postalCode."', '".$aboutYou."')";
 if(mysqli_query($link, $sql)){
-    $message="1";
+    $message=array("status"=>"1", "mess"=>"Saved Successfully");
 } else{
-    $message="ERROR: Could not able to execute $sql. " . mysqli_error($link);
+    //$message="ERROR: Could not able to execute $sql. " . mysqli_error($link);
+	$message=array("status"=>"0", "mess"=>"ERROR: Could not able to execute $sql. " . mysqli_error($link));
 }
 echo json_encode(array($message));
 
