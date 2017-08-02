@@ -9,10 +9,9 @@
         <router-outlet></router-outlet>
         <div *ngIf="isMaps('/maps')">
             <app-footer></app-footer>
-        </div>
-        
-        <button (click)="create()">Create</button>
+        </div>        
         <simple-notifications [options]="options"></simple-notifications>
+        <button (click)="showMsg()">showMsg</button>
     </div>
 </div>
 

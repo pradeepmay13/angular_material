@@ -15,10 +15,7 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { LoginComponent } from './login/login.component';
-//import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-import { SimpleNotificationsComponent } from './simple-notifications/simple-notifications.component';
-//import { CustomFormComponent } from './custom-form/custom-form.component';
 
 @NgModule({
   declarations: [
@@ -29,9 +26,6 @@ import { SimpleNotificationsComponent } from './simple-notifications/simple-noti
     FooterComponent,
     routingComponent,
     LoginComponent,
-    //UserRegistrationComponent,
-    SimpleNotificationsComponent,
-    //CustomFormComponent
   ],
   imports: [
     BrowserModule,

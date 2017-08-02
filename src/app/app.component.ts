@@ -17,26 +17,10 @@ declare var $:any;
 export class AppComponent implements OnInit {
 	title = 'app';
 	location: Location;
-	constructor(location:Location, private _service: NotificationsService) {
+	constructor(location:Location, private _notificationsService: NotificationsService) {
 	    this.location = location;
 	}
-  public options = {
-      position: ["top", "left"],
-      timeOut: 0,
-      lastOnBottom: true,
-  };
-  create() {
-    this._service.success(
-        'Some Title',
-        'Some Content',
-        {
-            showProgressBar: true,
-            pauseOnHover: false,
-            clickToClose: false,
-            maxLength: 10
-        }
-    )
-  }
+  
 	ngOnInit(){
       $.getScript('../assets/js/material-dashboard.js');
       $.getScript('../assets/js/initMenu.js');
@@ -50,5 +34,24 @@ export class AppComponent implements OnInit {
       else {
           return true;
       }
+  }
+  //============================== Notification =====================  
+  public options = {
+      position: ["bottom", "right"],
+      timeOut: 0,
+      animate:"scale",
+      pauseOnHover:true
+  };
+  showMsg(){
+    this._notificationsService.success(
+    'Success',
+    'Saved Successfully',
+    {
+        timeOut: 5000,
+        showProgressBar: true,
+        clickToClose: false,
+        maxLength: 10,
+    }
+)
   }
 }
